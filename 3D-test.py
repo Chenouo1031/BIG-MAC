@@ -8,7 +8,6 @@ df = pd.read_excel("c:/big-mac-project/BIG-MAC/output-data/未命名的試算表
 file_path = "c:/big-mac-project/BIG-MAC/output-data/未命名的試算表.xlsx"  # 请替换为你的文件路径
 xls = pd.ExcelFile(file_path)
 
-
 # 收集所有年份的数据
 data_list = []
 for sheet in xls.sheet_names:
@@ -45,8 +44,16 @@ for _, row in df_filtered.iterrows():
 fig = plt.figure(figsize=(40,40))
 ax = fig.add_subplot(111, projection="3d")
 
+# 定義每根柱子的顏色
+colors = ['red', 'blue', 'green', 'purple', 'orange', 'yellow']  # 可以自行擴充
+
+# 確保顏色數量與柱子數量一致
+colors = colors[:len(X.flatten())]
+
 dx = dy = 0.6  # 柱子宽度
 ax.bar3d(X.flatten(), Y.flatten(), np.zeros_like(Z.flatten()), dx, dy, Z.flatten(), shade=True)
+ax.bar3d(X.flatten(), Y.flatten(), np.zeros_like(Z.flatten()), dx, dy, Z.flatten(), color='red')
+
 
 # 设置轴标签
 ax.set_xticks(range(len(years)))
