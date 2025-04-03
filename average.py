@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt #載入matplotlib繪圖庫
 import seaborn as sns #載入seaborn視覺化庫
 from mpl_toolkits.mplot3d import Axes3D #載入3D繪圖庫
 
-a="INR"
-b="years"
+a="standard-deviation"
+b="Country"
 # 讀取 Excel 文件
-file_path = "d:/專題SHIT/BIG-MAC/Country-per-years.xlsx"  # 確保檔案路徑正確
+file_path = "d:/專題SHIT/BIG-MAC/average.xlsx"  # 確保檔案路徑正確
 xls = pd.ExcelFile(file_path)   #加載Excel資料表
 df_2025 = pd.read_excel(xls, sheet_name="工作表1")  #讀取Excel資料表
 
